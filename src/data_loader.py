@@ -21,20 +21,16 @@ class DataLoader:
             raise FileNotFoundError(
                 f"Data file not found: {self.data_path}"
             )
-
         df = pd.read_csv(self.data_path)
-
         missing = self.REQUIRED_COLUMNS.difference(df.columns)
         if missing:
             raise ValueError(f"Missing columns: {sorted(missing)}")
-
         df = df.dropna(subset=["abstract", "year"]).copy()
         df["year"] = pd.to_numeric(df["year"], errors="coerce")
         df = df.dropna(subset=["year"])
         df["year"] = df["year"].astype(int)
         df = df[df["year"].between(self.start_year, self.end_year)]
         df = df.reset_index(drop=True)
-
         print(f"Loaded {len(df)} papers "
               f"({df['year'].min()}–{df['year'].max()})")
         return df

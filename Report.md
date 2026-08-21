@@ -237,6 +237,7 @@ This suggests that recent publications are becoming slightly more focused around
 **Figure 3: Yearly Thematic Alignment Trend (2018–2024)**
 
 Figure 3 shows the evolution of average alignment scores over time. The positive regression slope indicates a small but consistent increase in thematic alignment between 2018 and 2024.
+ 
 ---
 
 # 3.6 Topic Modeling Results
